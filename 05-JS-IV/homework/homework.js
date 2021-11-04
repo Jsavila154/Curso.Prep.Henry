@@ -65,8 +65,14 @@ function tieneEmail(usuario) {
 // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
 // De lo contratio, devuelve "false"
 // Tu código:
-var respuesta = usuario.hasOwnProperty("email");
-return respuesta;
+  var respuesta = null;
+  if(usuario.email === null ){
+    respuesta = false; 
+    return respuesta; 
+  } 
+    else 
+    respuesta = usuario.hasOwnProperty("email");
+    return respuesta;
 }
 function tienePropiedad(objeto, propiedad) {
 // Devuelve "true" si el objeto (parámetro "objeto") tiene una propiedad (key) cuyo nombre es igual al valor del argumento "propiedad"
@@ -136,7 +142,11 @@ function agregarMetodoCalculoDescuento(producto) {
 // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
 // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
 // Tu código:
-
+  producto.calcularPrecioDescuento = function() {
+  var descuento = producto.precio - (producto.precio * producto.porcentajeDeDescuento);
+  return descuento;
+  }
+  return producto;
 }
 // No modificar nada debajo de esta línea
 // --------------------------------
